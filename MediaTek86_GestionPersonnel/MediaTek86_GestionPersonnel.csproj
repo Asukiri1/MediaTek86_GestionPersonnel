@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="view\FrmAjoutModifAbsence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmAjoutModifAbsence.Designer.cs">
+      <DependentUpon>FrmAjoutModifAbsence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmAjoutModifPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmAjoutModifPersonnel.Designer.cs">
+      <DependentUpon>FrmAjoutModifPersonnel.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmGestionAbsences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmGestionAbsences.Designer.cs">
+      <DependentUpon>FrmGestionAbsences.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FrmGestionPersonnel.cs">
       <SubType>Form</SubType>
@@ -69,6 +87,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\FrmAjoutModifAbsence.resx">
+      <DependentUpon>FrmAjoutModifAbsence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmAjoutModifPersonnel.resx">
+      <DependentUpon>FrmAjoutModifPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmConnexion.resx">
+      <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmGestionAbsences.resx">
+      <DependentUpon>FrmGestionAbsences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmGestionPersonnel.resx">
+      <DependentUpon>FrmGestionPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

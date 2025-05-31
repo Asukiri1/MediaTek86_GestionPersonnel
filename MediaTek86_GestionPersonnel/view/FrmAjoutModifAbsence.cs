@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace MediaTek86_GestionPersonnel.view
 {
-    public partial class FrmConnexion : Form
+    public partial class FrmAjoutModifAbsence : Form
     {
-        public FrmConnexion()
+        public FrmAjoutModifAbsence()
         {
             InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

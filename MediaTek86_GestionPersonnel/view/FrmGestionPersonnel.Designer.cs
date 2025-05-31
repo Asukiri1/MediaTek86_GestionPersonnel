@@ -28,12 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAjouterPersonnel = new System.Windows.Forms.Button();
+            this.btnModifierPersonnel = new System.Windows.Forms.Button();
+            this.btnSupprimerPersonnel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(776, 397);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // btnAjouterPersonnel
+            // 
+            this.btnAjouterPersonnel.Location = new System.Drawing.Point(12, 12);
+            this.btnAjouterPersonnel.Name = "btnAjouterPersonnel";
+            this.btnAjouterPersonnel.Size = new System.Drawing.Size(75, 23);
+            this.btnAjouterPersonnel.TabIndex = 1;
+            this.btnAjouterPersonnel.Text = "Ajouter";
+            this.btnAjouterPersonnel.UseVisualStyleBackColor = true;
+            this.btnAjouterPersonnel.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnModifierPersonnel
+            // 
+            this.btnModifierPersonnel.Location = new System.Drawing.Point(104, 12);
+            this.btnModifierPersonnel.Name = "btnModifierPersonnel";
+            this.btnModifierPersonnel.Size = new System.Drawing.Size(75, 23);
+            this.btnModifierPersonnel.TabIndex = 2;
+            this.btnModifierPersonnel.Text = "Modifier";
+            this.btnModifierPersonnel.UseVisualStyleBackColor = true;
+            // 
+            // btnSupprimerPersonnel
+            // 
+            this.btnSupprimerPersonnel.Location = new System.Drawing.Point(195, 12);
+            this.btnSupprimerPersonnel.Name = "btnSupprimerPersonnel";
+            this.btnSupprimerPersonnel.Size = new System.Drawing.Size(75, 23);
+            this.btnSupprimerPersonnel.TabIndex = 3;
+            this.btnSupprimerPersonnel.Text = "Supprimer";
+            this.btnSupprimerPersonnel.UseVisualStyleBackColor = true;
+            // 
+            // FrmGestionPersonnel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSupprimerPersonnel);
+            this.Controls.Add(this.btnModifierPersonnel);
+            this.Controls.Add(this.btnAjouterPersonnel);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "FrmGestionPersonnel";
             this.Text = "FrmGestionPersonnel";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAjouterPersonnel;
+        private System.Windows.Forms.Button btnModifierPersonnel;
+        private System.Windows.Forms.Button btnSupprimerPersonnel;
     }
 }
