@@ -7,17 +7,18 @@ using MediaTek86_GestionPersonnel.view;
 
 namespace MediaTek86_GestionPersonnel
 {
-    internal static class Program
-    {
-        /// <summary>
-        /// Point d'entrée principal de l'application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+    
+        internal static class Program
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmConnexion());
+            /// <summary>
+            /// Point d'entrée principal de l'application.
+            /// </summary>
+            [STAThread]
+            static void Main()
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new FrmConnexion());
+            }
         }
     }
-}
