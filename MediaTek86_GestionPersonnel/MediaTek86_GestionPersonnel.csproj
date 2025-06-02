@@ -54,9 +54,11 @@
     <Compile Include="bddmanager\BddManager.cs" />
     <Compile Include="bddmanager\BddManagerNamespaceDoc.cs" />
     <Compile Include="controller\FrmConnexionController.cs" />
+    <Compile Include="controller\FrmGestionPersonnelController.cs" />
     <Compile Include="controller\ResponsableAccess.cs" />
     <Compile Include="dal\Access.cs" />
     <Compile Include="dal\DalNamespaceDoc.cs" />
+    <Compile Include="dal\PersonnelAccess.cs" />
     <Compile Include="model\Absence.cs" />
     <Compile Include="model\ModelNamespaceDoc.cs" />
     <Compile Include="model\Motif.cs" />

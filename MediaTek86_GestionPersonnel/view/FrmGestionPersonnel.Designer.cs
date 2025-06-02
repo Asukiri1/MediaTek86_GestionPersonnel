@@ -1,4 +1,4 @@
-﻿namespace MediaTek86_GestionPersonnel
+﻿namespace MediaTek86_GestionPersonnel.view
 {
     partial class FrmGestionPersonnel
     {
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPersonnel = new System.Windows.Forms.DataGridView();
             this.btnAjouterPersonnel = new System.Windows.Forms.Button();
             this.btnModifierPersonnel = new System.Windows.Forms.Button();
             this.btnSupprimerPersonnel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvPersonnel
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 397);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvPersonnel.AllowUserToOrderColumns = true;
+            this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersonnel.Location = new System.Drawing.Point(12, 41);
+            this.dgvPersonnel.Name = "dgvPersonnel";
+            this.dgvPersonnel.Size = new System.Drawing.Size(776, 397);
+            this.dgvPersonnel.TabIndex = 0;
             // 
             // btnAjouterPersonnel
             // 
@@ -52,7 +52,7 @@
             this.btnAjouterPersonnel.TabIndex = 1;
             this.btnAjouterPersonnel.Text = "Ajouter";
             this.btnAjouterPersonnel.UseVisualStyleBackColor = true;
-            this.btnAjouterPersonnel.Click += new System.EventHandler(this.button1_Click);
+            this.btnAjouterPersonnel.Click += new System.EventHandler(this.buttonAjouterPersonnel_Click);
             // 
             // btnModifierPersonnel
             // 
@@ -62,6 +62,7 @@
             this.btnModifierPersonnel.TabIndex = 2;
             this.btnModifierPersonnel.Text = "Modifier";
             this.btnModifierPersonnel.UseVisualStyleBackColor = true;
+            this.btnModifierPersonnel.Click += new System.EventHandler(this.btnModifierPersonnel_Click);
             // 
             // btnSupprimerPersonnel
             // 
@@ -71,6 +72,7 @@
             this.btnSupprimerPersonnel.TabIndex = 3;
             this.btnSupprimerPersonnel.Text = "Supprimer";
             this.btnSupprimerPersonnel.UseVisualStyleBackColor = true;
+            this.btnSupprimerPersonnel.Click += new System.EventHandler(this.btnSupprimerPersonnel_Click);
             // 
             // FrmGestionPersonnel
             // 
@@ -80,17 +82,17 @@
             this.Controls.Add(this.btnSupprimerPersonnel);
             this.Controls.Add(this.btnModifierPersonnel);
             this.Controls.Add(this.btnAjouterPersonnel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPersonnel);
             this.Name = "FrmGestionPersonnel";
             this.Text = "FrmGestionPersonnel";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPersonnel;
         private System.Windows.Forms.Button btnAjouterPersonnel;
         private System.Windows.Forms.Button btnModifierPersonnel;
         private System.Windows.Forms.Button btnSupprimerPersonnel;
