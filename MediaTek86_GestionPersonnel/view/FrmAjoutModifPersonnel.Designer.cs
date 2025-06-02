@@ -31,13 +31,13 @@
             this.txtnomperso = new System.Windows.Forms.Label();
             this.txtprenomperso = new System.Windows.Forms.Label();
             this.txttelperso = new System.Windows.Forms.Label();
-            this.txtmail = new System.Windows.Forms.Label();
+            this.txtMaillabel = new System.Windows.Forms.Label();
             this.txtservice = new System.Windows.Forms.Label();
-            this.txtNomPersonnel = new System.Windows.Forms.TextBox();
-            this.txtPrenomPersonnel = new System.Windows.Forms.TextBox();
-            this.txtTelPersonnel = new System.Windows.Forms.TextBox();
-            this.txtMailPersonnel = new System.Windows.Forms.TextBox();
-            this.comboBoxService = new System.Windows.Forms.ComboBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.cmbService = new System.Windows.Forms.ComboBox();
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -69,14 +69,14 @@
             this.txttelperso.TabIndex = 2;
             this.txttelperso.Text = "Tel : ";
             // 
-            // txtmail
+            // txtMaillabel
             // 
-            this.txtmail.AutoSize = true;
-            this.txtmail.Location = new System.Drawing.Point(480, 13);
-            this.txtmail.Name = "txtmail";
-            this.txtmail.Size = new System.Drawing.Size(35, 13);
-            this.txtmail.TabIndex = 3;
-            this.txtmail.Text = "Mail : ";
+            this.txtMaillabel.AutoSize = true;
+            this.txtMaillabel.Location = new System.Drawing.Point(480, 13);
+            this.txtMaillabel.Name = "txtMaillabel";
+            this.txtMaillabel.Size = new System.Drawing.Size(35, 13);
+            this.txtMaillabel.TabIndex = 3;
+            this.txtMaillabel.Text = "Mail : ";
             // 
             // txtservice
             // 
@@ -87,41 +87,41 @@
             this.txtservice.TabIndex = 4;
             this.txtservice.Text = "Service : ";
             // 
-            // txtNomPersonnel
+            // txtNom
             // 
-            this.txtNomPersonnel.Location = new System.Drawing.Point(57, 9);
-            this.txtNomPersonnel.Name = "txtNomPersonnel";
-            this.txtNomPersonnel.Size = new System.Drawing.Size(100, 20);
-            this.txtNomPersonnel.TabIndex = 5;
+            this.txtNom.Location = new System.Drawing.Point(57, 9);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(100, 20);
+            this.txtNom.TabIndex = 5;
             // 
-            // txtPrenomPersonnel
+            // txtPrenom
             // 
-            this.txtPrenomPersonnel.Location = new System.Drawing.Point(228, 9);
-            this.txtPrenomPersonnel.Name = "txtPrenomPersonnel";
-            this.txtPrenomPersonnel.Size = new System.Drawing.Size(100, 20);
-            this.txtPrenomPersonnel.TabIndex = 6;
+            this.txtPrenom.Location = new System.Drawing.Point(228, 9);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(100, 20);
+            this.txtPrenom.TabIndex = 6;
             // 
-            // txtTelPersonnel
+            // txtTel
             // 
-            this.txtTelPersonnel.Location = new System.Drawing.Point(374, 9);
-            this.txtTelPersonnel.Name = "txtTelPersonnel";
-            this.txtTelPersonnel.Size = new System.Drawing.Size(100, 20);
-            this.txtTelPersonnel.TabIndex = 7;
+            this.txtTel.Location = new System.Drawing.Point(374, 9);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(100, 20);
+            this.txtTel.TabIndex = 7;
             // 
-            // txtMailPersonnel
+            // txtMail
             // 
-            this.txtMailPersonnel.Location = new System.Drawing.Point(521, 9);
-            this.txtMailPersonnel.Name = "txtMailPersonnel";
-            this.txtMailPersonnel.Size = new System.Drawing.Size(100, 20);
-            this.txtMailPersonnel.TabIndex = 8;
+            this.txtMail.Location = new System.Drawing.Point(521, 9);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(100, 20);
+            this.txtMail.TabIndex = 8;
             // 
-            // comboBoxService
+            // cmbService
             // 
-            this.comboBoxService.FormattingEnabled = true;
-            this.comboBoxService.Location = new System.Drawing.Point(696, 8);
-            this.comboBoxService.Name = "comboBoxService";
-            this.comboBoxService.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxService.TabIndex = 9;
+            this.cmbService.FormattingEnabled = true;
+            this.cmbService.Location = new System.Drawing.Point(696, 8);
+            this.cmbService.Name = "cmbService";
+            this.cmbService.Size = new System.Drawing.Size(100, 21);
+            this.cmbService.TabIndex = 9;
             // 
             // btnEnregistrer
             // 
@@ -131,6 +131,7 @@
             this.btnEnregistrer.TabIndex = 10;
             this.btnEnregistrer.Text = "Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
+            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
             // 
             // btnAnnuler
             // 
@@ -148,13 +149,13 @@
             this.ClientSize = new System.Drawing.Size(800, 86);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnEnregistrer);
-            this.Controls.Add(this.comboBoxService);
-            this.Controls.Add(this.txtMailPersonnel);
-            this.Controls.Add(this.txtTelPersonnel);
-            this.Controls.Add(this.txtPrenomPersonnel);
-            this.Controls.Add(this.txtNomPersonnel);
+            this.Controls.Add(this.cmbService);
+            this.Controls.Add(this.txtMail);
+            this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.txtPrenom);
+            this.Controls.Add(this.txtNom);
             this.Controls.Add(this.txtservice);
-            this.Controls.Add(this.txtmail);
+            this.Controls.Add(this.txtMaillabel);
             this.Controls.Add(this.txttelperso);
             this.Controls.Add(this.txtprenomperso);
             this.Controls.Add(this.txtnomperso);
@@ -170,13 +171,13 @@
         private System.Windows.Forms.Label txtnomperso;
         private System.Windows.Forms.Label txtprenomperso;
         private System.Windows.Forms.Label txttelperso;
-        private System.Windows.Forms.Label txtmail;
+        private System.Windows.Forms.Label txtMaillabel;
         private System.Windows.Forms.Label txtservice;
-        private System.Windows.Forms.TextBox txtNomPersonnel;
-        private System.Windows.Forms.TextBox txtPrenomPersonnel;
-        private System.Windows.Forms.TextBox txtTelPersonnel;
-        private System.Windows.Forms.TextBox txtMailPersonnel;
-        private System.Windows.Forms.ComboBox comboBoxService;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.ComboBox cmbService;
         private System.Windows.Forms.Button btnEnregistrer;
         private System.Windows.Forms.Button btnAnnuler;
     }

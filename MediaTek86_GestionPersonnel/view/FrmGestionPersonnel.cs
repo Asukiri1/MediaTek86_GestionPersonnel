@@ -105,7 +105,7 @@ namespace MediaTek86_GestionPersonnel.view
         }
 
 
-        // Tes gestionnaires de boutons existants (on ajoutera leur logique plus tard)
+        
         private void btnModifierPersonnel_Click(object sender, EventArgs e)
         {
 
@@ -116,9 +116,16 @@ namespace MediaTek86_GestionPersonnel.view
 
         }
 
-        private void buttonAjouterPersonnel_Click(object sender, EventArgs e) // Note: le nom du bouton est "buttonAjouterPersonnel"
+        private void buttonAjouterPersonnel_Click(object sender, EventArgs e) 
         {
+            // Ouvre FrmAjoutModifPersonnel en mode Ajout
+            FrmAjoutModifPersonnel frmAjout = new FrmAjoutModifPersonnel(this.controller);
+            DialogResult resultat = frmAjout.ShowDialog(); 
 
+            if (resultat == DialogResult.OK)
+            {
+                ChargerPersonnel(); // Rafraîchir la liste si un personnel a été ajouté
+            }
         }
 
 

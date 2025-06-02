@@ -60,7 +60,58 @@ namespace MediaTek86_GestionPersonnel.dal
             }
             return lesPersonnels;
         }
+        public List<Service> GetAllServices()
+        {
+            List<Service> lesServices = new List<Service>();
+            string req = "SELECT idservice, nom FROM service ORDER BY nom;";
+            try
+            {
+                List<object[]> records = bddManager.ReqSelect(req);
+                foreach (object[] record in records)
+                {
+                    Service service = new Service(
+                        (int)record[0],      // idservice
+                        (string)record[1]    // nom
+                    );
+                    lesServices.Add(service);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans GetAllServices : " + e.Message);
+            }
+            return lesServices;
+        }
 
-        
+        /// <summary>
+        /// Ajoute un nouveau personnel à la base de données.
+        /// </summary>
+        /// <param name="personnel">L'objet Personnel contenant les informations à ajouter.</param>
+        /// <returns>True si l'ajout a réussi, False sinon.</returns>
+        public bool AddPersonnel(Personnel personnel)
+        {
+            string req = "INSERT INTO personnel (nom, prenom, tel, mail, idservice) ";
+            req += "VALUES (@nom, @prenom, @tel, @mail, @idservice);";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@nom", personnel.Nom);
+            parameters.Add("@prenom", personnel.Prenom);
+            parameters.Add("@tel", personnel.Tel);
+            parameters.Add("@mail", personnel.Mail);
+            parameters.Add("@idservice", personnel.IdService);
+
+            try
+            {
+                bddManager.ReqUpdate(req, parameters);
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans AddPersonnel : " + e.Message);
+                return false;
+            }
+        }
     }
+
+
 }

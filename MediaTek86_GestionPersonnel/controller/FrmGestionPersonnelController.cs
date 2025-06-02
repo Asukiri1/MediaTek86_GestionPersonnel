@@ -33,7 +33,28 @@ namespace MediaTek86_GestionPersonnel.controller
         {
             return personnelAccess.GetAllPersonnel();
         }
+    
+     /// <summary>
+    /// Récupère la liste de tous les services.
+    /// </summary>
+    /// <returns>Une liste d'objets Service.</returns>
+    public List<Service> GetAllServices()
+        {
+            return personnelAccess.GetAllServices();
+        }
 
-        
+        /// <summary>
+        /// Demande l'ajout d'un nouveau personnel.
+        /// </summary>
+        /// <param name="personnel">Le personnel à ajouter.</param>
+        /// <returns>True si l'ajout a réussi, False sinon.</returns>
+        public bool AjouterPersonnel(Personnel personnel)
+        {
+
+            if (personnel == null) return false;
+
+            return personnelAccess.AddPersonnel(personnel);
+        }
     }
+
 }
