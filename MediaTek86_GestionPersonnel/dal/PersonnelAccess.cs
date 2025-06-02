@@ -140,8 +140,34 @@ namespace MediaTek86_GestionPersonnel.dal
                 return false;
             }
         }
+        public bool DeletePersonnel(int idPersonnel)
+        {
+
+            //Supprimer les absences liées à ce personnel
+            string reqDeleteAbsences = "DELETE FROM absence WHERE idpersonnel = @idpersonnel;";
+            Dictionary<string, object> parametersAbsences = new Dictionary<string, object>();
+            parametersAbsences.Add("@idpersonnel", idPersonnel);
+
+            //Supprimer le personnel
+            string reqDeletePersonnel = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel;";
+            Dictionary<string, object> parametersPersonnel = new Dictionary<string, object>();
+            parametersPersonnel.Add("@idpersonnel", idPersonnel);
+
+            try
+            {
+                bddManager.ReqUpdate(reqDeleteAbsences, parametersAbsences);
+                bddManager.ReqUpdate(reqDeletePersonnel, parametersPersonnel);
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans DeletePersonnel : " + e.Message);
+                return false;
+            }
+        }
     }
 }
+
 
 
 

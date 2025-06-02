@@ -67,6 +67,16 @@ namespace MediaTek86_GestionPersonnel.controller
 
             return personnelAccess.UpdatePersonnel(personnel);
         }
+        /// <summary>
+        /// Demande la suppression d'un personnel.
+        /// </summary>
+        /// <param name="idPersonnel">L'ID du personnel à supprimer.</param>
+        /// <returns>True si la suppression a réussi, False sinon.</returns>
+        public bool SupprimerPersonnel(int idPersonnel)
+        {
+            return personnelAccess.DeletePersonnel(idPersonnel);
+        }
     }
 }
+
 

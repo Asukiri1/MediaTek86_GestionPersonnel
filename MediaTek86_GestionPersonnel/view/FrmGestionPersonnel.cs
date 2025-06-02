@@ -135,7 +135,39 @@ namespace MediaTek86_GestionPersonnel.view
 
         private void btnSupprimerPersonnel_Click(object sender, EventArgs e)
         {
+            //Vérifier si un personnel est sélectionné
+            if (dgvPersonnel.SelectedRows.Count > 0)
+            {
+                Personnel personnelSelectionne = (Personnel)bsPersonnel.Current; 
 
+                if (personnelSelectionne != null)
+                {
+                    //Demander confirmation à l'utilisateur
+                    DialogResult confirmation = MessageBox.Show(
+                        $"Êtes-vous sûr de vouloir supprimer le personnel '{personnelSelectionne.Prenom} {personnelSelectionne.Nom}' ainsi que toutes ses absences associées ?",
+                        "Confirmation de suppression",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (confirmation == DialogResult.Yes)
+                    {
+                        if (controller.SupprimerPersonnel(personnelSelectionne.IdPersonnel))
+                        {
+                            MessageBox.Show("Personnel et ses absences supprimés avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ChargerPersonnel();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erreur lors de la suppression du personnel.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnel à supprimer.", "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonAjouterPersonnel_Click(object sender, EventArgs e) 
