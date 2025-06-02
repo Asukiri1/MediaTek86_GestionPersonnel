@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="bddmanager\BddManager.cs" />
     <Compile Include="bddmanager\BddManagerNamespaceDoc.cs" />
+    <Compile Include="controller\FrmConnexionController.cs" />
+    <Compile Include="controller\ResponsableAccess.cs" />
     <Compile Include="dal\Access.cs" />
     <Compile Include="dal\DalNamespaceDoc.cs" />
     <Compile Include="model\Absence.cs" />
@@ -132,8 +134,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

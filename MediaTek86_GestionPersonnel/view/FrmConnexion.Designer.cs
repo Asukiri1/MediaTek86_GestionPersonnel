@@ -29,46 +29,56 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labellogin = new System.Windows.Forms.Label();
-            this.textlogin = new System.Windows.Forms.TextBox();
+            this.btnQuitter = new System.Windows.Forms.Button();
+            this.btnValider = new System.Windows.Forms.Button();
+            this.txtPwd = new System.Windows.Forms.TextBox();
             this.labelpwd = new System.Windows.Forms.Label();
-            this.textpwd = new System.Windows.Forms.TextBox();
-            this.btnvalider = new System.Windows.Forms.Button();
-            this.btnquitter = new System.Windows.Forms.Button();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.labellogin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnquitter);
-            this.groupBox1.Controls.Add(this.btnvalider);
-            this.groupBox1.Controls.Add(this.textpwd);
+            this.groupBox1.Controls.Add(this.btnQuitter);
+            this.groupBox1.Controls.Add(this.btnValider);
+            this.groupBox1.Controls.Add(this.txtPwd);
             this.groupBox1.Controls.Add(this.labelpwd);
-            this.groupBox1.Controls.Add(this.textlogin);
+            this.groupBox1.Controls.Add(this.txtLogin);
             this.groupBox1.Controls.Add(this.labellogin);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(330, 104);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // labellogin
+            // btnQuitter
             // 
-            this.labellogin.AutoSize = true;
-            this.labellogin.Location = new System.Drawing.Point(8, 26);
-            this.labellogin.Name = "labellogin";
-            this.labellogin.Size = new System.Drawing.Size(39, 13);
-            this.labellogin.TabIndex = 0;
-            this.labellogin.Text = "Login :";
-            this.labellogin.Click += new System.EventHandler(this.label1_Click);
+            this.btnQuitter.Location = new System.Drawing.Point(120, 75);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(100, 23);
+            this.btnQuitter.TabIndex = 5;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
-            // textlogin
+            // btnValider
             // 
-            this.textlogin.Location = new System.Drawing.Point(53, 20);
-            this.textlogin.Name = "textlogin";
-            this.textlogin.Size = new System.Drawing.Size(100, 20);
-            this.textlogin.TabIndex = 1;
+            this.btnValider.Location = new System.Drawing.Point(11, 75);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(100, 23);
+            this.btnValider.TabIndex = 4;
+            this.btnValider.Text = "Valider";
+            this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
+            // 
+            // txtPwd
+            // 
+            this.txtPwd.Location = new System.Drawing.Point(224, 20);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PasswordChar = '*';
+            this.txtPwd.Size = new System.Drawing.Size(100, 20);
+            this.txtPwd.TabIndex = 3;
             // 
             // labelpwd
             // 
@@ -79,32 +89,21 @@
             this.labelpwd.TabIndex = 2;
             this.labelpwd.Text = "Pwd :";
             // 
-            // textpwd
+            // txtLogin
             // 
-            this.textpwd.Location = new System.Drawing.Point(224, 20);
-            this.textpwd.Name = "textpwd";
-            this.textpwd.PasswordChar = '*';
-            this.textpwd.Size = new System.Drawing.Size(100, 20);
-            this.textpwd.TabIndex = 3;
+            this.txtLogin.Location = new System.Drawing.Point(53, 20);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtLogin.TabIndex = 1;
             // 
-            // btnvalider
+            // labellogin
             // 
-            this.btnvalider.Location = new System.Drawing.Point(11, 75);
-            this.btnvalider.Name = "btnvalider";
-            this.btnvalider.Size = new System.Drawing.Size(100, 23);
-            this.btnvalider.TabIndex = 4;
-            this.btnvalider.Text = "Valider";
-            this.btnvalider.UseVisualStyleBackColor = true;
-            this.btnvalider.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnquitter
-            // 
-            this.btnquitter.Location = new System.Drawing.Point(120, 75);
-            this.btnquitter.Name = "btnquitter";
-            this.btnquitter.Size = new System.Drawing.Size(100, 23);
-            this.btnquitter.TabIndex = 5;
-            this.btnquitter.Text = "Quitter";
-            this.btnquitter.UseVisualStyleBackColor = true;
+            this.labellogin.AutoSize = true;
+            this.labellogin.Location = new System.Drawing.Point(8, 26);
+            this.labellogin.Name = "labellogin";
+            this.labellogin.Size = new System.Drawing.Size(39, 13);
+            this.labellogin.TabIndex = 0;
+            this.labellogin.Text = "Login :";
             // 
             // FrmConnexion
             // 
@@ -124,10 +123,10 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labellogin;
-        private System.Windows.Forms.TextBox textpwd;
+        private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Label labelpwd;
-        private System.Windows.Forms.TextBox textlogin;
-        private System.Windows.Forms.Button btnquitter;
-        private System.Windows.Forms.Button btnvalider;
+        private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Button btnQuitter;
+        private System.Windows.Forms.Button btnValider;
     }
 }

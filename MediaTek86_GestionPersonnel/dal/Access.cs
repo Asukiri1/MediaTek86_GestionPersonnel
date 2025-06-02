@@ -15,7 +15,7 @@ namespace MediaTek86_GestionPersonnel.dal
         /// <summary>
         /// chaine de connexion à la bdd
         /// </summary>
-        private static readonly string connectionString = "server=localhost;user id=mediatek_user;password=Monsupermotdepasse;database=mediatek86_gestion_personnel;SslMode=none";
+        private static readonly string connectionString = "server=localhost;user id=mediatek_user;password=Monsupermotdepasse;database=mediatek86_gestion_personnel";
         /// <summary>
         /// instance unique de la classe
         /// </summary>
