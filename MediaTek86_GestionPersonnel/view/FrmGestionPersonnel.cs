@@ -108,7 +108,29 @@ namespace MediaTek86_GestionPersonnel.view
         
         private void btnModifierPersonnel_Click(object sender, EventArgs e)
         {
+            // Vérifier si un personnel est sélectionné dans dgvPersonnel
+            if (dgvPersonnel.SelectedRows.Count > 0)
+            {
+                // Récupérer l'objet Personnel sélectionné
+                Personnel personnelSelectionne = (Personnel)bsPersonnel.Current;
 
+                if (personnelSelectionne != null)
+                {
+                    //Ouvrir FrmAjoutModifPersonnel en mode "modification" avec les données du personnel
+                    FrmAjoutModifPersonnel frmModif = new FrmAjoutModifPersonnel(this.controller, personnelSelectionne);
+                    DialogResult resultat = frmModif.ShowDialog();
+
+                    //Si FrmAjoutModifPersonnel retourne OK, rafraîchir la liste
+                    if (resultat == DialogResult.OK)
+                    {
+                        ChargerPersonnel();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnel à modifier.", "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSupprimerPersonnel_Click(object sender, EventArgs e)

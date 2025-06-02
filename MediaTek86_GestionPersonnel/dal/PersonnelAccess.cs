@@ -111,7 +111,37 @@ namespace MediaTek86_GestionPersonnel.dal
                 return false;
             }
         }
+        /// <summary>
+        /// Met à jour les informations d'un personnel existant dans la base de données.
+        /// </summary>
+        /// <param name="personnel">L'objet Personnel contenant les informations mises à jour.</param>
+        /// <returns>True si la mise à jour a réussi, False sinon.</returns>
+        public bool UpdatePersonnel(Personnel personnel)
+        {
+            string req = "UPDATE personnel SET nom = @nom, prenom = @prenom, tel = @tel, mail = @mail, idservice = @idservice ";
+            req += "WHERE idpersonnel = @idpersonnel;";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@nom", personnel.Nom);
+            parameters.Add("@prenom", personnel.Prenom);
+            parameters.Add("@tel", personnel.Tel);
+            parameters.Add("@mail", personnel.Mail);
+            parameters.Add("@idservice", personnel.IdService);
+            parameters.Add("@idpersonnel", personnel.IdPersonnel); 
+
+            try
+            {
+                bddManager.ReqUpdate(req, parameters);
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans UpdatePersonnel : " + e.Message);
+                return false;
+            }
+        }
     }
-
-
 }
+
+
+

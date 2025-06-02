@@ -81,7 +81,7 @@ namespace MediaTek86_GestionPersonnel.view
             // Valider les champs
             if (string.IsNullOrWhiteSpace(txtNom.Text) ||
                 string.IsNullOrWhiteSpace(txtPrenom.Text) ||
-                string.IsNullOrWhiteSpace(txtTel.Text) || 
+                string.IsNullOrWhiteSpace(txtTel.Text) ||
                 string.IsNullOrWhiteSpace(txtMail.Text) ||
                 cmbService.SelectedIndex == -1)
             {
@@ -94,17 +94,24 @@ namespace MediaTek86_GestionPersonnel.view
             string prenom = txtPrenom.Text;
             string tel = txtTel.Text;
             string mail = txtMail.Text;
-            int idService = (int)cmbService.SelectedValue; 
-
-            if (personnelAEditer == null) 
+            int idService = (int)cmbService.SelectedValue;
+            // Récupérer le nom du service sélectionné pour la propriété ServiceNom de l'objet Personnel
+            string serviceNom = "";
+            if (cmbService.SelectedItem != null) // S'assurer qu'un item est bien sélectionné
             {
-                
-                Personnel nouveauPersonnel = new Personnel(0, nom, prenom, tel, mail, idService, ((Service)cmbService.SelectedItem).Nom); // L'id 0 est temporaire
+                serviceNom = ((Service)cmbService.SelectedItem).Nom;
+            }
+
+
+            if (personnelAEditer == null) // Mode Ajout
+            {
+                // Crée un nouvel objet Personnel
+                Personnel nouveauPersonnel = new Personnel(0, nom, prenom, tel, mail, idService, serviceNom);
 
                 if (controller.AjouterPersonnel(nouveauPersonnel))
                 {
                     MessageBox.Show("Personnel ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = DialogResult.OK; 
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
@@ -112,10 +119,26 @@ namespace MediaTek86_GestionPersonnel.view
                     MessageBox.Show("Erreur lors de l'ajout du personnel.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else 
+            else // Mode Modification
             {
-                
-                MessageBox.Show("Logique de modification à implémenter.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Mettre à jour l'objet personnelAEditer avec les nouvelles valeurs
+                personnelAEditer.Nom = nom;
+                personnelAEditer.Prenom = prenom;
+                personnelAEditer.Tel = tel;
+                personnelAEditer.Mail = mail;
+                personnelAEditer.IdService = idService;
+                personnelAEditer.ServiceNom = serviceNom; 
+
+                if (controller.ModifierPersonnel(personnelAEditer))
+                {
+                    MessageBox.Show("Personnel modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de la modification du personnel.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

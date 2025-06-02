@@ -55,6 +55,18 @@ namespace MediaTek86_GestionPersonnel.controller
 
             return personnelAccess.AddPersonnel(personnel);
         }
-    }
+        /// <summary>
+        /// Demande la mise à jour d'un personnel existant.
+        /// </summary>
+        /// <param name="personnel">Le personnel avec les informations mises à jour.</param>
+        /// <returns>True si la mise à jour a réussi, False sinon.</returns>
+        public bool ModifierPersonnel(Personnel personnel)
+        {
+            
+            if (personnel == null) return false;
 
+            return personnelAccess.UpdatePersonnel(personnel);
+        }
+    }
 }
+
