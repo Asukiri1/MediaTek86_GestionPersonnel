@@ -16,7 +16,7 @@ namespace MediaTek86_GestionPersonnel.view
     public partial class FrmGestionAbsences : Form
     {
         private readonly FrmGestionAbsencesController controller;
-        private readonly Personnel personnelConcerne;
+        private readonly Personnel personnelConcerne; 
         private BindingSource bsAbsences;
 
         /// <summary>
@@ -84,7 +84,6 @@ namespace MediaTek86_GestionPersonnel.view
             colMotif.HeaderText = "Motif";
             colMotif.Name = "colMotif";
 
-
             DataGridViewTextBoxColumn colIdPersonnel = new DataGridViewTextBoxColumn();
             colIdPersonnel.DataPropertyName = "IdPersonnel";
             colIdPersonnel.Visible = false;
@@ -112,6 +111,7 @@ namespace MediaTek86_GestionPersonnel.view
             }
         }
 
+        // Gestionnaire pour le bouton Fermer
         private void btnFermerAbsences_Click(object sender, EventArgs e)
         {
             this.Close();
