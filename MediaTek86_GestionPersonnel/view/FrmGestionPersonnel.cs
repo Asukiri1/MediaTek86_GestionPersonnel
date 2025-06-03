@@ -181,6 +181,23 @@ namespace MediaTek86_GestionPersonnel.view
                 ChargerPersonnel(); // Rafraîchir la liste si un personnel a été ajouté
             }
         }
+        private void btnGererAbsences_Click(object sender, EventArgs e) 
+        {
+            if (dgvPersonnel.SelectedRows.Count > 0)
+            {
+                Personnel personnelSelectionne = (Personnel)bsPersonnel.Current;
+                if (personnelSelectionne != null)
+                {
+                    // Ouvre la fenêtre de gestion des absences pour ce personnel
+                    FrmGestionAbsences frmGestionAbsences = new FrmGestionAbsences(personnelSelectionne);
+                    frmGestionAbsences.ShowDialog(this);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnel pour gérer ses absences.", "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
 
     }

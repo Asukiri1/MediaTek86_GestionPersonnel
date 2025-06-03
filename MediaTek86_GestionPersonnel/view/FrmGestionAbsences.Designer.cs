@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelAbs = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblNomPersonnelConcerne = new System.Windows.Forms.Label();
+            this.dgvAbsencesPersonnel = new System.Windows.Forms.DataGridView();
             this.buttonAddAbs = new System.Windows.Forms.Button();
             this.buttonModAbs = new System.Windows.Forms.Button();
             this.buttonDelAbs = new System.Windows.Forms.Button();
-            this.btnRetour = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnFermerAbsences = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbsencesPersonnel)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelAbs
+            // lblNomPersonnelConcerne
             // 
-            this.labelAbs.AutoSize = true;
-            this.labelAbs.Location = new System.Drawing.Point(13, 24);
-            this.labelAbs.Name = "labelAbs";
-            this.labelAbs.Size = new System.Drawing.Size(35, 13);
-            this.labelAbs.TabIndex = 0;
-            this.labelAbs.Text = "label1";
+            this.lblNomPersonnelConcerne.AutoSize = true;
+            this.lblNomPersonnelConcerne.Location = new System.Drawing.Point(13, 24);
+            this.lblNomPersonnelConcerne.Name = "lblNomPersonnelConcerne";
+            this.lblNomPersonnelConcerne.Size = new System.Drawing.Size(35, 13);
+            this.lblNomPersonnelConcerne.TabIndex = 0;
+            this.lblNomPersonnelConcerne.Text = "label1";
             // 
-            // dataGridView1
+            // dgvAbsencesPersonnel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 47);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(772, 391);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvAbsencesPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAbsencesPersonnel.Location = new System.Drawing.Point(16, 47);
+            this.dgvAbsencesPersonnel.Name = "dgvAbsencesPersonnel";
+            this.dgvAbsencesPersonnel.Size = new System.Drawing.Size(772, 391);
+            this.dgvAbsencesPersonnel.TabIndex = 1;
             // 
             // buttonAddAbs
             // 
@@ -81,29 +81,29 @@
             this.buttonDelAbs.Text = "Supprimer absence";
             this.buttonDelAbs.UseVisualStyleBackColor = true;
             // 
-            // btnRetour
+            // btnFermerAbsences
             // 
-            this.btnRetour.Location = new System.Drawing.Point(16, 445);
-            this.btnRetour.Name = "btnRetour";
-            this.btnRetour.Size = new System.Drawing.Size(83, 23);
-            this.btnRetour.TabIndex = 5;
-            this.btnRetour.Text = "Retour";
-            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnFermerAbsences.Location = new System.Drawing.Point(16, 445);
+            this.btnFermerAbsences.Name = "btnFermerAbsences";
+            this.btnFermerAbsences.Size = new System.Drawing.Size(83, 23);
+            this.btnFermerAbsences.TabIndex = 5;
+            this.btnFermerAbsences.Text = "Retour";
+            this.btnFermerAbsences.UseVisualStyleBackColor = true;
             // 
             // FrmGestionAbsences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 490);
-            this.Controls.Add(this.btnRetour);
+            this.Controls.Add(this.btnFermerAbsences);
             this.Controls.Add(this.buttonDelAbs);
             this.Controls.Add(this.buttonModAbs);
             this.Controls.Add(this.buttonAddAbs);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.labelAbs);
+            this.Controls.Add(this.dgvAbsencesPersonnel);
+            this.Controls.Add(this.lblNomPersonnelConcerne);
             this.Name = "FrmGestionAbsences";
             this.Text = "FrmGestionAbsences";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbsencesPersonnel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,11 +111,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelAbs;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblNomPersonnelConcerne;
+        private System.Windows.Forms.DataGridView dgvAbsencesPersonnel;
         private System.Windows.Forms.Button buttonAddAbs;
         private System.Windows.Forms.Button buttonModAbs;
         private System.Windows.Forms.Button buttonDelAbs;
-        private System.Windows.Forms.Button btnRetour;
+        private System.Windows.Forms.Button btnFermerAbsences;
     }
 }

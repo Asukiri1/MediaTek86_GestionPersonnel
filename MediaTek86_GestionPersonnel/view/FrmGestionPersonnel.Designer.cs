@@ -32,6 +32,7 @@
             this.btnAjouterPersonnel = new System.Windows.Forms.Button();
             this.btnModifierPersonnel = new System.Windows.Forms.Button();
             this.btnSupprimerPersonnel = new System.Windows.Forms.Button();
+            this.btnGererAbsences = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +75,22 @@
             this.btnSupprimerPersonnel.UseVisualStyleBackColor = true;
             this.btnSupprimerPersonnel.Click += new System.EventHandler(this.btnSupprimerPersonnel_Click);
             // 
+            // btnGererAbsences
+            // 
+            this.btnGererAbsences.Location = new System.Drawing.Point(679, 12);
+            this.btnGererAbsences.Name = "btnGererAbsences";
+            this.btnGererAbsences.Size = new System.Drawing.Size(109, 23);
+            this.btnGererAbsences.TabIndex = 4;
+            this.btnGererAbsences.Text = "Gérer les absences";
+            this.btnGererAbsences.UseVisualStyleBackColor = true;
+            this.btnGererAbsences.Click += new System.EventHandler(this.btnGererAbsences_Click);
+            // 
             // FrmGestionPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGererAbsences);
             this.Controls.Add(this.btnSupprimerPersonnel);
             this.Controls.Add(this.btnModifierPersonnel);
             this.Controls.Add(this.btnAjouterPersonnel);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button btnAjouterPersonnel;
         private System.Windows.Forms.Button btnModifierPersonnel;
         private System.Windows.Forms.Button btnSupprimerPersonnel;
+        private System.Windows.Forms.Button btnGererAbsences;
     }
 }
