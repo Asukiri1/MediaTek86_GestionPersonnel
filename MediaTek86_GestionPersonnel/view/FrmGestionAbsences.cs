@@ -13,6 +13,10 @@ using System.Windows.Forms;
 
 namespace MediaTek86_GestionPersonnel.view
 {
+    /// <summary>
+    /// Fenêtre de gestion des absences pour un personnel donné.
+    /// Permet d'afficher, ajouter, modifier et supprimer des absences.
+    /// </summary>
     public partial class FrmGestionAbsences : Form
     {
         private readonly FrmGestionAbsencesController controller;
@@ -59,7 +63,7 @@ namespace MediaTek86_GestionPersonnel.view
             if (dgvAbsencesPersonnel == null) return;
 
             dgvAbsencesPersonnel.AutoGenerateColumns = false;
-            dgvAbsencesPersonnel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Ou AllCells
+            dgvAbsencesPersonnel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; 
             dgvAbsencesPersonnel.AllowUserToAddRows = false;
             dgvAbsencesPersonnel.AllowUserToDeleteRows = false;
             dgvAbsencesPersonnel.ReadOnly = true;

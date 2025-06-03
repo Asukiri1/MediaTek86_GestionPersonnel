@@ -141,6 +141,7 @@
             this.btnAnnuler.TabIndex = 11;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // FrmAjoutModifPersonnel
             // 
@@ -160,7 +161,7 @@
             this.Controls.Add(this.txtprenomperso);
             this.Controls.Add(this.txtnomperso);
             this.Name = "FrmAjoutModifPersonnel";
-            this.Text = "FrmAjoutModifPersonnel";
+            this.Text = "Ajout et modification du personnel";
             this.ResumeLayout(false);
             this.PerformLayout();
 

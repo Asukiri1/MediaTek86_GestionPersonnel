@@ -12,12 +12,19 @@ using MediaTek86_GestionPersonnel.model;
 
 namespace MediaTek86_GestionPersonnel.view 
 {
+    /// <summary>
+    /// Formulaire de gestion du personnel.
+    /// Permet d'afficher, modifier, ajouter et supprimer des employés.
+    /// </summary>
     public partial class FrmGestionPersonnel : Form
     {
         // Déclaration du contrôleur et du BindingSource
         private readonly FrmGestionPersonnelController controller;
-        private BindingSource bsPersonnel; 
+        private BindingSource bsPersonnel;
 
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="FrmGestionPersonnel"/>.
+        /// </summary>
         public FrmGestionPersonnel()
         {
             InitializeComponent();
@@ -55,8 +62,9 @@ namespace MediaTek86_GestionPersonnel.view
             dgvPersonnel.AllowUserToDeleteRows = false;
             dgvPersonnel.ReadOnly = true;
             dgvPersonnel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPersonnel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Vider les colonnes existantes au cas où (si cette méthode est appelée plusieurs fois)
+            // Vider les colonnes existantes au cas où 
             dgvPersonnel.Columns.Clear();
 
             // Définir les colonnes

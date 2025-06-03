@@ -32,28 +32,26 @@ namespace MediaTek86_GestionPersonnel.dal
         /// <returns>True si les identifiants correspondent, False sinon.</returns>
         public bool VerifierIdentifiants(string login, string pwd)
         {
-            // La requête doit comparer le login et le mot de passe HASHÉ.
-            // La fonction SHA2() est une fonction SQL de MySQL.
+
             string req = "SELECT COUNT(*) FROM responsable WHERE login = @login AND pwd = SHA2(@pwd, 256);";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@login", login);
-            parameters.Add("@pwd", pwd); // Le mot de passe est passé en clair, SHA2 s'en occupe côté BDD
+            parameters.Add("@pwd", pwd); 
 
             try
             {
                 List<object[]> result = bddManager.ReqSelect(req, parameters);
                 if (result != null && result.Count > 0)
                 {
-                    // Le résultat de COUNT(*) est dans result[0][0]
+
                     long count = (long)result[0][0];
                     return count > 0;
                 }
             }
             catch (System.Exception ex)
             {
-                // Gérer l'exception (log, etc.)
+
                 System.Diagnostics.Debug.WriteLine("Erreur lors de la vérification des identifiants : " + ex.Message);
-                // Optionnel : relancer l'exception ou retourner false
             }
             return false;
         }

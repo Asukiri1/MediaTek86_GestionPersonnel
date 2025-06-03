@@ -96,7 +96,7 @@
             this.Controls.Add(this.btnAjouterPersonnel);
             this.Controls.Add(this.dgvPersonnel);
             this.Name = "FrmGestionPersonnel";
-            this.Text = "FrmGestionPersonnel";
+            this.Text = "Gestion du personnel";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).EndInit();
             this.ResumeLayout(false);
 

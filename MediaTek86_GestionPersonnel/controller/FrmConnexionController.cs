@@ -31,7 +31,7 @@ namespace MediaTek86_GestionPersonnel.controller
         /// <returns>True si les identifiants sont valides, False sinon.</returns>
         public bool VerifierAuthentification(string login, string pwd)
         {
-            // Valider les entrées (non vide, etc.) - Peut être fait ici ou dans la vue avant d'appeler
+            // Valider les entrées
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(pwd))
             {
                 return false;

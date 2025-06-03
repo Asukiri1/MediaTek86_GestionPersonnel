@@ -121,7 +121,7 @@
             this.Controls.Add(this.dtpDateDebut);
             this.Controls.Add(this.label1);
             this.Name = "FrmAjoutModifAbsence";
-            this.Text = "FrmAjoutModifAbsence";
+            this.Text = "Ajout et modifcation des absence";
             this.ResumeLayout(false);
             this.PerformLayout();
 

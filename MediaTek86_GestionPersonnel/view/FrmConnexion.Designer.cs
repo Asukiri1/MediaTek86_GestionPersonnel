@@ -112,7 +112,8 @@
             this.ClientSize = new System.Drawing.Size(347, 128);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmConnexion";
-            this.Text = "FrmConnexion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Connexion";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

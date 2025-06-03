@@ -60,6 +60,11 @@ namespace MediaTek86_GestionPersonnel.dal
             }
             return lesPersonnels;
         }
+
+        /// <summary>
+        /// Récupère tous les services disponibles.
+        /// </summary>
+        /// <returns>Une liste d'objets Service.</returns>
         public List<Service> GetAllServices()
         {
             List<Service> lesServices = new List<Service>();
@@ -140,6 +145,11 @@ namespace MediaTek86_GestionPersonnel.dal
                 return false;
             }
         }
+        /// <summary>
+        /// Supprime un membre du personnel ainsi que ses absences associées de la base de données.
+        /// </summary>
+        /// <param name="idPersonnel">L'identifiant du personnel à supprimer.</param>
+        /// <returns>True si la suppression a réussi, False sinon.</returns>
         public bool DeletePersonnel(int idPersonnel)
         {
 

@@ -11,10 +11,16 @@ using MediaTek86_GestionPersonnel.controller;
 
 namespace MediaTek86_GestionPersonnel.view
 {
+    /// <summary>
+    /// Fenêtre de connexion permettant à l'utilisateur de s'authentifier.
+    /// </summary>
     public partial class FrmConnexion : Form
     {
         private readonly FrmConnexionController controller;
 
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="FrmConnexion"/>.
+        /// </summary>
         public FrmConnexion()
         {
             InitializeComponent();

@@ -12,6 +12,9 @@ using MediaTek86_GestionPersonnel.model;
 
 namespace MediaTek86_GestionPersonnel.view
 {
+    /// <summary>
+    /// Fenêtre permettant d'ajouter ou de modifier une absence.
+    /// </summary>
     public partial class FrmAjoutModifAbsence : Form
     {
         private readonly FrmGestionAbsencesController controller;

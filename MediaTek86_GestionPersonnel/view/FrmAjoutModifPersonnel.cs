@@ -12,6 +12,9 @@ using MediaTek86_GestionPersonnel.model;
 
 namespace MediaTek86_GestionPersonnel.view
 {
+    /// <summary>
+    /// Fenêtre permettant d'ajouter ou de modifier un personnel.
+    /// </summary>
     public partial class FrmAjoutModifPersonnel : Form
     {
         private readonly FrmGestionPersonnelController controller;

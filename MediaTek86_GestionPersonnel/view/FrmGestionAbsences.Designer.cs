@@ -92,6 +92,7 @@
             this.btnFermerAbsences.TabIndex = 5;
             this.btnFermerAbsences.Text = "Retour";
             this.btnFermerAbsences.UseVisualStyleBackColor = true;
+            this.btnFermerAbsences.Click += new System.EventHandler(this.btnFermerAbsences_Click);
             // 
             // FrmGestionAbsences
             // 
@@ -105,7 +106,7 @@
             this.Controls.Add(this.dgvAbsencesPersonnel);
             this.Controls.Add(this.lblNomPersonnelConcerne);
             this.Name = "FrmGestionAbsences";
-            this.Text = "FrmGestionAbsences";
+            this.Text = "Gestion des absences";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsencesPersonnel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

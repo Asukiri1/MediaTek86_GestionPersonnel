@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="bddmanager\BddManager.cs" />
     <Compile Include="bddmanager\BddManagerNamespaceDoc.cs" />
+    <Compile Include="controller\ControllerNamespaceDoc.cs" />
     <Compile Include="controller\FrmConnexionController.cs" />
     <Compile Include="controller\FrmGestionAbsencesController.cs" />
     <Compile Include="controller\FrmGestionPersonnelController.cs" />
@@ -124,7 +125,7 @@
     <EmbeddedResource Include="view\FrmGestionPersonnel.resx">
       <DependentUpon>FrmGestionPersonnel.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DocumentationTechnique_MediaTek86.zip" />
+    <None Include="DocumentationTechnique_MediaTek86_vFinale.zip" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
