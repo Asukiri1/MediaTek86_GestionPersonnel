@@ -69,8 +69,19 @@ namespace MediaTek86_GestionPersonnel.controller
 
             return absenceAccess.UpdateAbsence(absenceModifiee, dateDebutOriginale);
         }
+        /// <summary>
+        /// Demande la suppression d'une absence.
+        /// </summary>
+        /// <param name="idPersonnel">L'ID du personnel concerné.</param>
+        /// <param name="dateDebut">La date de début de l'absence à supprimer.</param>
+        /// <returns>True si la suppression a réussi, False sinon.</returns>
+        public bool SupprimerAbsence(int idPersonnel, DateTime dateDebut)
+        {
+            return absenceAccess.DeleteAbsence(idPersonnel, dateDebut);
+        }
     }
 }
+
 
 
 

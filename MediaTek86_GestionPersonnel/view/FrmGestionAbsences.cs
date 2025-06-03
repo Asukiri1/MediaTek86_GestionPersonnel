@@ -111,7 +111,6 @@ namespace MediaTek86_GestionPersonnel.view
             }
         }
 
-        // Gestionnaire pour le bouton Fermer
         private void btnFermerAbsences_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -149,6 +148,43 @@ namespace MediaTek86_GestionPersonnel.view
                 MessageBox.Show("Veuillez sélectionner une absence à modifier.", "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void btnSupprimerAbsence_Click(object sender, EventArgs e)
+        {
+            if (dgvAbsencesPersonnel.SelectedRows.Count > 0)
+            {
+                Absence absenceSelectionnee = (Absence)bsAbsences.Current;
 
+                if (absenceSelectionnee != null)
+                {
+                    // Demander confirmation à l'utilisateur
+                    DialogResult confirmation = MessageBox.Show(
+                        $"Êtes-vous sûr de vouloir supprimer l'absence du {absenceSelectionnee.DateDebut:dd/MM/yyyy} au {absenceSelectionnee.DateFin:dd/MM/yyyy} pour le motif '{absenceSelectionnee.MotifLibelle}' ?",
+                        "Confirmation de suppression",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (confirmation == DialogResult.Yes)
+                    {
+
+                        if (controller.SupprimerAbsence(absenceSelectionnee.IdPersonnel, absenceSelectionnee.DateDebut))
+                        {
+                            MessageBox.Show("Absence supprimée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ChargerAbsences(); 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erreur lors de la suppression de l'absence.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une absence à supprimer.", "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
+
 }
+

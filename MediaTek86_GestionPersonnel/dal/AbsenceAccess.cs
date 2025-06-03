@@ -152,8 +152,38 @@ namespace MediaTek86_GestionPersonnel.dal
                 return false;
             }
         }
+        /// <summary>
+        /// Supprime une absence de la base de données.
+        /// L'absence est identifiée par l'ID du personnel et sa date de début.
+        /// </summary>
+        /// <param name="idPersonnel">L'ID du personnel concerné.</param>
+        /// <param name="dateDebut">La date de début de l'absence à supprimer.</param>
+        /// <returns>True si la suppression a réussi, False sinon.</returns>
+        public bool DeleteAbsence(int idPersonnel, DateTime dateDebut)
+        {
+            string req = "DELETE FROM absence WHERE idpersonnel = @idpersonnel AND datedebut = @datedebut;";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@idpersonnel", idPersonnel);
+            parameters.Add("@datedebut", dateDebut);
+
+            try
+            {
+
+
+                bddManager.ReqUpdate(req, parameters);
+                return true; 
+                             
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans DeleteAbsence : " + e.Message);
+                return false;
+            }
+        }
     }
 }
+
 
 
 
