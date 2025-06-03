@@ -62,6 +62,7 @@
             this.buttonAddAbs.TabIndex = 2;
             this.buttonAddAbs.Text = "Ajouter absence";
             this.buttonAddAbs.UseVisualStyleBackColor = true;
+            this.buttonAddAbs.Click += new System.EventHandler(this.btnAjouterAbsence_Click);
             // 
             // buttonModAbs
             // 

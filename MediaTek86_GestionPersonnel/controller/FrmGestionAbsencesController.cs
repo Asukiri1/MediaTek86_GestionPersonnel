@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MediaTek86_GestionPersonnel.dal;
+using MediaTek86_GestionPersonnel.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MediaTek86_GestionPersonnel.dal;
-using MediaTek86_GestionPersonnel.model;
+using System.Windows.Forms;
 
 namespace MediaTek86_GestionPersonnel.controller
 {
@@ -41,9 +42,18 @@ namespace MediaTek86_GestionPersonnel.controller
         {
             return absenceAccess.GetAllMotifs();
         }
-
+        /// <summary>
+        /// Demande l'ajout d'une nouvelle absence.
+        /// </summary>
+        /// <param name="absence">L'absence à ajouter.</param>
+        /// <returns>True si l'ajout a réussi, False sinon.</returns>
+        public bool AjouterAbsence(Absence absence)
+        {
+            return absenceAccess.AddAbsence(absence);
+        }
     }
 }
+
 
 
 

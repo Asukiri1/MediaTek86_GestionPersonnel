@@ -16,7 +16,7 @@ namespace MediaTek86_GestionPersonnel.view
     public partial class FrmGestionAbsences : Form
     {
         private readonly FrmGestionAbsencesController controller;
-        private readonly Personnel personnelConcerne; // Le personnel dont on gère les absences
+        private readonly Personnel personnelConcerne;
         private BindingSource bsAbsences;
 
         /// <summary>
@@ -31,7 +31,6 @@ namespace MediaTek86_GestionPersonnel.view
             this.bsAbsences = new BindingSource();
 
             // Afficher le nom du personnel
-            // Assure-toi que ton Label s'appelle lblNomPersonnelConcerne
             if (lblNomPersonnelConcerne != null)
             {
                 lblNomPersonnelConcerne.Text = "Absences de : " + personnelConcerne.Prenom + " " + personnelConcerne.Nom;
@@ -40,7 +39,6 @@ namespace MediaTek86_GestionPersonnel.view
 
 
             // Lier le DataGridView au BindingSource
-            // Assure-toi que ton DataGridView s'appelle dgvAbsencesPersonnel
             if (dgvAbsencesPersonnel != null)
             {
                 dgvAbsencesPersonnel.DataSource = bsAbsences;
@@ -73,7 +71,7 @@ namespace MediaTek86_GestionPersonnel.view
             colDateDebut.DataPropertyName = "DateDebut";
             colDateDebut.HeaderText = "Date de début";
             colDateDebut.Name = "colDateDebut";
-            colDateDebut.DefaultCellStyle.Format = "dd/MM/yyyy"; // Format de date court
+            colDateDebut.DefaultCellStyle.Format = "dd/MM/yyyy"; 
 
             DataGridViewTextBoxColumn colDateFin = new DataGridViewTextBoxColumn();
             colDateFin.DataPropertyName = "DateFin";
@@ -82,11 +80,11 @@ namespace MediaTek86_GestionPersonnel.view
             colDateFin.DefaultCellStyle.Format = "dd/MM/yyyy";
 
             DataGridViewTextBoxColumn colMotif = new DataGridViewTextBoxColumn();
-            colMotif.DataPropertyName = "MotifLibelle"; // Utilise la propriété qui contient le libellé du motif
+            colMotif.DataPropertyName = "MotifLibelle"; 
             colMotif.HeaderText = "Motif";
             colMotif.Name = "colMotif";
 
-            // Optionnel : cacher l'idpersonnel et idmotif si non pertinent pour l'utilisateur ici
+
             DataGridViewTextBoxColumn colIdPersonnel = new DataGridViewTextBoxColumn();
             colIdPersonnel.DataPropertyName = "IdPersonnel";
             colIdPersonnel.Visible = false;
@@ -105,7 +103,7 @@ namespace MediaTek86_GestionPersonnel.view
         /// <summary>
         /// Charge ou met à jour la liste des absences pour le personnel concerné.
         /// </summary>
-        public void ChargerAbsences() // Public pour pouvoir la rafraîchir
+        public void ChargerAbsences()
         {
             if (personnelConcerne != null)
             {
@@ -114,11 +112,20 @@ namespace MediaTek86_GestionPersonnel.view
             }
         }
 
-        // Gestionnaire pour le bouton Fermer
-        // Assure-toi que ton bouton s'appelle btnFermerAbsences
         private void btnFermerAbsences_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void btnAjouterAbsence_Click(object sender, EventArgs e)
+        {
+
+            FrmAjoutModifAbsence frmAjout = new FrmAjoutModifAbsence(this.controller, this.personnelConcerne);
+            DialogResult resultat = frmAjout.ShowDialog(this);
+
+            if (resultat == DialogResult.OK)
+            {
+                ChargerAbsences();
+            }
         }
 
     }

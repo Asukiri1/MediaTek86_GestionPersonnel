@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateDebut = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dtpDateFin = new System.Windows.Forms.DateTimePicker();
+            this.cmbMotif = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnEnregistrerAbs = new System.Windows.Forms.Button();
-            this.btnAnnulerAbs = new System.Windows.Forms.Button();
+            this.btnEnregistrerAbsence = new System.Windows.Forms.Button();
+            this.btnAnnulerAbsence = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,12 +47,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Date de début : ";
             // 
-            // dateTimePicker1
+            // dtpDateDebut
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpDateDebut.Location = new System.Drawing.Point(103, 12);
+            this.dtpDateDebut.Name = "dtpDateDebut";
+            this.dtpDateDebut.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateDebut.TabIndex = 1;
             // 
             // label2
             // 
@@ -63,20 +63,20 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Date de fin : ";
             // 
-            // dateTimePicker2
+            // dtpDateFin
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(387, 12);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dtpDateFin.Location = new System.Drawing.Point(387, 12);
+            this.dtpDateFin.Name = "dtpDateFin";
+            this.dtpDateFin.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateFin.TabIndex = 3;
             // 
-            // comboBox1
+            // cmbMotif
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(57, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cmbMotif.FormattingEnabled = true;
+            this.cmbMotif.Location = new System.Drawing.Point(57, 68);
+            this.cmbMotif.Name = "cmbMotif";
+            this.cmbMotif.Size = new System.Drawing.Size(121, 21);
+            this.cmbMotif.TabIndex = 4;
             // 
             // label3
             // 
@@ -87,36 +87,38 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Motif : ";
             // 
-            // btnEnregistrerAbs
+            // btnEnregistrerAbsence
             // 
-            this.btnEnregistrerAbs.Location = new System.Drawing.Point(16, 118);
-            this.btnEnregistrerAbs.Name = "btnEnregistrerAbs";
-            this.btnEnregistrerAbs.Size = new System.Drawing.Size(75, 23);
-            this.btnEnregistrerAbs.TabIndex = 6;
-            this.btnEnregistrerAbs.Text = "Enregistrer";
-            this.btnEnregistrerAbs.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAbsence.Location = new System.Drawing.Point(16, 118);
+            this.btnEnregistrerAbsence.Name = "btnEnregistrerAbsence";
+            this.btnEnregistrerAbsence.Size = new System.Drawing.Size(75, 23);
+            this.btnEnregistrerAbsence.TabIndex = 6;
+            this.btnEnregistrerAbsence.Text = "Enregistrer";
+            this.btnEnregistrerAbsence.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAbsence.Click += new System.EventHandler(this.btnEnregistrerAbsence_Click);
             // 
-            // btnAnnulerAbs
+            // btnAnnulerAbsence
             // 
-            this.btnAnnulerAbs.Location = new System.Drawing.Point(107, 117);
-            this.btnAnnulerAbs.Name = "btnAnnulerAbs";
-            this.btnAnnulerAbs.Size = new System.Drawing.Size(75, 23);
-            this.btnAnnulerAbs.TabIndex = 7;
-            this.btnAnnulerAbs.Text = "Annuler";
-            this.btnAnnulerAbs.UseVisualStyleBackColor = true;
+            this.btnAnnulerAbsence.Location = new System.Drawing.Point(107, 117);
+            this.btnAnnulerAbsence.Name = "btnAnnulerAbsence";
+            this.btnAnnulerAbsence.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnulerAbsence.TabIndex = 7;
+            this.btnAnnulerAbsence.Text = "Annuler";
+            this.btnAnnulerAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulerAbsence.Click += new System.EventHandler(this.btnAnnulerAbsence_Click);
             // 
             // FrmAjoutModifAbsence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 160);
-            this.Controls.Add(this.btnAnnulerAbs);
-            this.Controls.Add(this.btnEnregistrerAbs);
+            this.Controls.Add(this.btnAnnulerAbsence);
+            this.Controls.Add(this.btnEnregistrerAbsence);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.cmbMotif);
+            this.Controls.Add(this.dtpDateFin);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDateDebut);
             this.Controls.Add(this.label1);
             this.Name = "FrmAjoutModifAbsence";
             this.Text = "FrmAjoutModifAbsence";
@@ -128,12 +130,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDateDebut;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dtpDateFin;
+        private System.Windows.Forms.ComboBox cmbMotif;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnEnregistrerAbs;
-        private System.Windows.Forms.Button btnAnnulerAbs;
+        private System.Windows.Forms.Button btnEnregistrerAbsence;
+        private System.Windows.Forms.Button btnAnnulerAbsence;
     }
 }

@@ -86,7 +86,36 @@ namespace MediaTek86_GestionPersonnel.dal
                 System.Diagnostics.Debug.WriteLine("Erreur dans GetAllMotifs (AbsenceAccess) : " + e.Message);
             }
             return lesMotifs;
+
+        }   
+        /// <summary>
+        /// Ajoute une nouvelle absence à la base de données.
+        /// </summary>
+        /// <param name="absence">L'objet Absence contenant les informations à ajouter.</param>
+        /// <returns>True si l'ajout a réussi, False sinon.</returns>
+        public bool AddAbsence(Absence absence)
+        {
+            string req = "INSERT INTO absence (idpersonnel, datedebut, datefin, idmotif) ";
+            req += "VALUES (@idpersonnel, @datedebut, @datefin, @idmotif);";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@idpersonnel", absence.IdPersonnel);
+            parameters.Add("@datedebut", absence.DateDebut); // Doit être au format YYYY-MM-DD pour la BDD
+            parameters.Add("@datefin", absence.DateFin);   // Pareil
+            parameters.Add("@idmotif", absence.IdMotif);
+
+            try
+            {
+                bddManager.ReqUpdate(req, parameters);
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans AddAbsence : " + e.Message);
+                return false;
+            }
         }
     }
 }
+
 
