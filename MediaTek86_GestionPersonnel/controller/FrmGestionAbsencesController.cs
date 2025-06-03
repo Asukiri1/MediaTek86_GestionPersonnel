@@ -51,9 +51,26 @@ namespace MediaTek86_GestionPersonnel.controller
         {
             return absenceAccess.AddAbsence(absence);
         }
+
+        /// <summary>
+        /// Demande la mise à jour d'une absence existante.
+        /// </summary>
+        /// <param name="absenceModifiee">L'absence avec les informations mises à jour.</param>
+        /// <param name="dateDebutOriginale">La date de début originale de l'absence à modifier.</param>
+        /// <returns>True si la mise à jour a réussi, False sinon.</returns>
+        public bool ModifierAbsence(Absence absenceModifiee, DateTime dateDebutOriginale)
+        {
+            if (absenceModifiee == null) return false;
+            if (absenceModifiee.DateFin < absenceModifiee.DateDebut)
+            {
+                MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return absenceAccess.UpdateAbsence(absenceModifiee, dateDebutOriginale);
+        }
     }
 }
-
 
 
 

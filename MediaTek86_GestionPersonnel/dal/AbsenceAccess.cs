@@ -115,7 +115,45 @@ namespace MediaTek86_GestionPersonnel.dal
                 return false;
             }
         }
+        /// <summary>
+        /// Met à jour une absence existante
+        /// L'absence est identifiée par idpersonnel et sa datedebut originale.
+        /// </summary>
+        /// <param name="absenceModifiee">L'objet Absence avec les informations mises à jour.</param>
+        /// <param name="dateDebutOriginale">La date de début originale de l'absence à modifier (pour la clause WHERE).</param>
+        /// <returns>True si la mise à jour a réussi, False sinon.</returns>
+        public bool UpdateAbsence(Absence absenceModifiee, DateTime dateDebutOriginale)
+        {
+           
+            if (absenceModifiee.DateFin < absenceModifiee.DateDebut)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans UpdateAbsence : Date de fin antérieure à la date de début.");
+                return false;
+            }
+
+            string req = "UPDATE absence SET datefin = @datefin, idmotif = @idmotif, datedebut = @datedebut ";
+            req += "WHERE idpersonnel = @idpersonnel AND datedebut = @dateDebutOriginale;";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@datefin", absenceModifiee.DateFin.Date);
+            parameters.Add("@idmotif", absenceModifiee.IdMotif);
+            parameters.Add("@datedebut", absenceModifiee.DateDebut.Date);
+            parameters.Add("@idpersonnel", absenceModifiee.IdPersonnel);
+            parameters.Add("@dateDebutOriginale", dateDebutOriginale.Date);
+
+            try
+            {
+                bddManager.ReqUpdate(req, parameters);
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur dans UpdateAbsence : " + e.Message);
+                return false;
+            }
+        }
     }
 }
+
 
 

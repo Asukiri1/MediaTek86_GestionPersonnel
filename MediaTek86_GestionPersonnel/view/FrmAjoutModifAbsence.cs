@@ -18,6 +18,8 @@ namespace MediaTek86_GestionPersonnel.view
         private readonly Personnel personnelConcerne; 
         private readonly Absence absenceAEditer; 
         private List<Motif> lesMotifs;
+        private DateTime dateDebutOriginalePourModif; //Stocker la date de début originale en mode modif
+
 
         /// <summary>
         /// Constructeur pour le mode Ajout.
@@ -38,7 +40,7 @@ namespace MediaTek86_GestionPersonnel.view
         }
 
         /// <summary>
-        /// Constructeur pour le mode Modification (sera utilisé plus tard).
+        /// Constructeur pour le mode Modification
         /// </summary>
         /// <param name="controllerAbsences">Le contrôleur des absences.</param>
         /// <param name="personnel">Le personnel concerné.</param>
@@ -47,13 +49,14 @@ namespace MediaTek86_GestionPersonnel.view
         {
             InitializeComponent();
             this.controller = controllerAbsences;
-            this.personnelConcerne = personnel; 
+            this.personnelConcerne = personnel;
             this.absenceAEditer = absence;
+            //Stocker uniquement la partie DATE de la date de début originale pour pas être embetté par l'heure lors de la modification
+            this.dateDebutOriginalePourModif = absence.DateDebut.Date;
             this.Text = "Modifier l'absence de " + personnel.Prenom + " " + personnel.Nom;
             ChargerMotifs();
-            AfficherInfosAbsence();
+            AfficherInfosAbsence(); 
         }
-
         /// <summary>
         /// Charge la liste des motifs dans la ComboBox.
         /// </summary>
@@ -73,28 +76,31 @@ namespace MediaTek86_GestionPersonnel.view
         {
             if (absenceAEditer != null)
             {
-                dtpDateDebut.Value = absenceAEditer.DateDebut;
-                dtpDateFin.Value = absenceAEditer.DateFin;
+                dtpDateDebut.Value = absenceAEditer.DateDebut; // Conserve l'heure originale pour l'affichage initial
+                dtpDateFin.Value = absenceAEditer.DateFin;     // Pareil
                 cmbMotif.SelectedValue = absenceAEditer.IdMotif;
             }
         }
 
         private void btnEnregistrerAbsence_Click(object sender, EventArgs e)
         {
-            if (cmbMotif.SelectedIndex == -1)
+            if (cmbMotif.SelectedIndex == -1 || dtpDateFin.Value < dtpDateDebut.Value)
             {
-                MessageBox.Show("Un motif doit être sélectionné.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (cmbMotif.SelectedIndex == -1)
+                    MessageBox.Show("Un motif doit être sélectionné.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dtpDateFin.Value < dtpDateDebut.Value)
+                    MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
 
-            DateTime dateDebut = dtpDateDebut.Value;
-            DateTime dateFin = dtpDateFin.Value;
+            DateTime dateDebut = dtpDateDebut.Value.Date;
+            DateTime dateFin = dtpDateFin.Value.Date;
             int idMotif = (int)cmbMotif.SelectedValue;
             string motifLibelle = ((Motif)cmbMotif.SelectedItem).Libelle;
 
-            if (absenceAEditer == null) 
+            if (absenceAEditer == null)
             {
                 Absence nouvelleAbsence = new Absence(personnelConcerne.IdPersonnel, dateDebut, dateFin, idMotif, motifLibelle);
 
@@ -107,7 +113,7 @@ namespace MediaTek86_GestionPersonnel.view
                 else
                 {
 
-                    if (dtpDateFin.Value >= dtpDateDebut.Value) 
+                    if (dtpDateFin.Value >= dtpDateDebut.Value)
                     {
                         MessageBox.Show("Erreur lors de l'ajout de l'absence. Vérifiez qu'il n'y a pas de chevauchement avec une absence existante.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -115,9 +121,28 @@ namespace MediaTek86_GestionPersonnel.view
             }
             else // Mode Modification 
             {
-                // Logique de modification
+                absenceAEditer.DateDebut = dateDebut;
+                absenceAEditer.DateFin = dateFin;
+                absenceAEditer.IdMotif = idMotif;
+                absenceAEditer.MotifLibelle = motifLibelle;
+
+
+                if (controller.ModifierAbsence(absenceAEditer, this.dateDebutOriginalePourModif))
+                {
+                    MessageBox.Show("Absence modifiée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    if (dtpDateFin.Value >= dtpDateDebut.Value)
+                    {
+                        MessageBox.Show("Erreur lors de la modification de l'absence. Vérifiez qu'il n'y a pas de chevauchement.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
+        
 
         private void btnAnnulerAbsence_Click(object sender, EventArgs e)
         {

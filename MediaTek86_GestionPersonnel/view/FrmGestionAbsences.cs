@@ -127,6 +127,28 @@ namespace MediaTek86_GestionPersonnel.view
                 ChargerAbsences();
             }
         }
+        private void btnModifierAbsence_Click(object sender, EventArgs e)
+        {
+            if (dgvAbsencesPersonnel.SelectedRows.Count > 0)
+            {
+                Absence absenceSelectionnee = (Absence)bsAbsences.Current;
+
+                if (absenceSelectionnee != null)
+                {
+                    FrmAjoutModifAbsence frmModif = new FrmAjoutModifAbsence(this.controller, this.personnelConcerne, absenceSelectionnee);
+                    DialogResult resultat = frmModif.ShowDialog(this);
+
+                    if (resultat == DialogResult.OK)
+                    {
+                        ChargerAbsences();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une absence à modifier.", "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
     }
 }

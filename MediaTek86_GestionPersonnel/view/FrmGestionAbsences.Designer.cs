@@ -72,6 +72,7 @@
             this.buttonModAbs.TabIndex = 3;
             this.buttonModAbs.Text = "Modifier absence";
             this.buttonModAbs.UseVisualStyleBackColor = true;
+            this.buttonModAbs.Click += new System.EventHandler(this.btnModifierAbsence_Click);
             // 
             // buttonDelAbs
             // 
