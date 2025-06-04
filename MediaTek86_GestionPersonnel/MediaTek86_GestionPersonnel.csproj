@@ -125,6 +125,7 @@
     <EmbeddedResource Include="view\FrmGestionPersonnel.resx">
       <DependentUpon>FrmGestionPersonnel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Compte rendu.pdf" />
     <None Include="DocumentationTechnique_MediaTek86_vFinale.zip" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,6 +140,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="mediatek86_gestion_personnel.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
